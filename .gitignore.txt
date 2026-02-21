@@ -1,0 +1,14 @@
+# Ignore Python internal "trash" files
+__pycache__/
+*.py[cod]
+
+# Ignore your private environment keys (very important!)
+.env
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore system-specific files (Mac/Windows junk)
+.DS_Store
+Thumbs.db

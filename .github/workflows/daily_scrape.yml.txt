@@ -1,0 +1,30 @@
+name: Daily Grocery Scrape
+
+on:
+  schedule:
+    # This runs at 3:00 AM UTC every single day
+    - cron: '0 3 * * *'
+  workflow_dispatch: # This adds a manual "Play" button on GitHub for testing
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Scraper
+        env:
+          # This maps your hidden GitHub Secrets to your Python code
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python your_script_name.py  # <-- CHANGE THIS to your actual filename
