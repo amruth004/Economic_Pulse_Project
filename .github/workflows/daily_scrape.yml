@@ -27,4 +27,4 @@ jobs:
           # This maps your hidden GitHub Secrets to your Python code
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-        run: python Web_Scraping.ipynb
+        run: python Web_Scraping.py
